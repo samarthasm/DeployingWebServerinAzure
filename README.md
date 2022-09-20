@@ -1,12 +1,12 @@
 # Azure Infrastructure Operations Project: Deploying a scalable IaaS web server in Azure
 
 ### Introduction
-For this project, you will write a Packer template and a Terraform template to deploy a customizable, scalable web server in Azure.
+In this project, you will write a Packer template and a Terraform template to deploy a customizable, scalable web server in Azure.
 
 ### Getting Started
 1. Clone this repository
 
-2. Create your infrastructure as code
+2. Create your infrastructure as code, create a tagging policy in Azure.
 
 3. Update this README to reflect how someone would use your code.
 
@@ -17,8 +17,18 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Instructions
-**Your words here**
+After the dependencies are set, you will:
+
+1. Create and deploy the packer image
+2. Create and deploy the infrastructure with a terraform template
+
+>>Create and deploy the packer image:
+In order to do this, we will use packer, which is a server templating software that is used to create and deploy virtual machine images. The sequence of steps for the same are as follows:
+
+a. Get the subscription id, client id and client secret from the service principal details of your azure account.
+b. 
+
 
 ### Output
-**Your words here**
+
 
