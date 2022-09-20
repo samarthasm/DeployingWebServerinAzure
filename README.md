@@ -26,7 +26,10 @@ After the dependencies are set, you will:
 In order to do this, we will use packer, which is a server templating software that is used to create and deploy virtual machine images. The sequence of steps for the same are as follows:
 
 a. Get the subscription id, client id and client secret from the service principal details of your azure account.
-b. 
+b. Ensure to export the environment variables by inputting the above details:
+export ARM_CLIENT_ID=<your client-id>
+export ARM_CLIENT_SECRET=<your client-secret>
+export ARM_SUBSCRIPTION_ID=<your subscription id>
 
 
 ### Output
