@@ -30,6 +30,7 @@ b. Ensure to export the environment variables by inputting the above details:
     export ARM_CLIENT_ID=<your client-id>
     export ARM_CLIENT_SECRET=<your client-secret>
     export ARM_SUBSCRIPTION_ID=<your subscription id>
+    export ARM_TENANT_ID=<your tenant id>
     
 c. Create a tagging policy and assign it to the <your subscriptions name>/<resource group name>.
 
@@ -39,10 +40,10 @@ e. Create the terraform template and deploy the infrastucture using the packer i
 
    Instead, after "terraform init" command, you need to:
    
-        i. Either import the existing resource group and then it will know which resource group to deploy. The command will be like:
-   >> terraform import azurerm_resource_group.main /subscriptions/{subsriptionId}/resourceGroups/{resourceGroupName}
+   i. Either import the existing resource group and then it will know which resource group to deploy. The command will be like:
+        terraform import azurerm_resource_group.main /subscriptions/{subsriptionId}/resourceGroups/{resourceGroupName}
    
-        ii. Or make changes in the terraform (main.tf) so that no new resources are created and existing one is considered instead.
+   ii. Or make changes in the terraform (main.tf) so that no new resources are created and existing one is considered instead.
         
    Then, you can follow it up with "terraform plan -out solution.plan" and "terraform apply" commands.
    
