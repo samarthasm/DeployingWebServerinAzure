@@ -30,8 +30,10 @@ b. Ensure to export the environment variables by inputting the above details:
     export ARM_SUBSCRIPTION_ID=<your subscription id>
 c. Create a tagging policy and assign it to the <your subscriptions name>/<resource group name>.
 d. Create the packer template and deploy the packer image.
-e. Create the terraform template and deploy the infrastucture using the packer image. If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. Instead, after "terraform init" command, we need to first import the existing resource group and then it will know which resource group to deploy. The similar command will be like:
+e. Create the terraform template and deploy the infrastucture using the packer image. If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. Instead, after "terraform init" command, you need to 
+   i. Either import the existing resource group and then it will know which resource group to deploy. The command will be like:
    terraform import azurerm_resource_group.main /subscriptions/{subsriptionId}/resourceGroups/{resourceGroupName}
+   ii. Or make changes in the terraform (main.tf) so that no new resources are created and existing one is considered instead.
    Then, you can follow it up with "terraform plan -out solution.plan" and "terraform apply" commands.
 f. Once you have deployed the infrastructure, you can check the resources on azure portal and then destroy them.
 
@@ -47,7 +49,7 @@ f. Once you have deployed the infrastructure, you can check the resources on azu
  <img width="960" alt="PackerImageSnip" src="https://user-images.githubusercontent.com/4275543/191486336-1b1d8f2e-1c43-4d24-81e2-ada4e460ef49.PNG">
   
 4. After terraform apply, you will be able to see the confirmation on cloud shell:
-<img width="311" alt="TerraformApplySnip1" src="https://user-images.githubusercontent.com/4275543/191486572-4bd2494a-e1a5-49ac-8552-0b12d0ff9713.PNG">
+<img width="960" alt="TerraformApplyComplete" src="https://user-images.githubusercontent.com/4275543/191519817-02835d5f-6629-48b2-a8f7-8ebb3b50b917.PNG">
 
 5. You will be able to see the resources created on the portal:
-<img width="960" alt="TerraformApplySnip2" src="https://user-images.githubusercontent.com/4275543/191486866-61bebe0d-89df-4729-8665-0926d9056629.PNG">
+<img width="960" alt="ResourcesInAzureAfterTerraformApply" src="https://user-images.githubusercontent.com/4275543/191520003-446383b8-d5d9-4711-bfbd-06849e70da56.PNG">
