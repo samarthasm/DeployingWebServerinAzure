@@ -55,8 +55,16 @@ e. Prepare the terraform templates by creating main.tf file and speacifying the 
     ```
     var.location
     ```
+    > Note that the resouce ID link of the packerimage created earlier can be referenced by the main.tf via a variable created for the same in vars.tf
     
-f. Create the terraform template and deploy the infrastucture using the packer image. 
+f. After this, deploy the infrastucture using the same templates with the help of following commands:
+    
+    ```
+    terraform init
+    terraform plan -out <specific file to hold the plan>
+    terraform apply
+    ```
+    
    If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. 
 
    Instead, after "terraform init" command, you need to:
@@ -71,8 +79,18 @@ f. Create the terraform template and deploy the infrastucture using the packer i
         
    Then, you can follow it up with "terraform plan -out solution.plan" and "terraform apply" commands.
    
-f. Once you have deployed the infrastructure, you can check the resources on azure portal and then destroy them.
+g. Once you have deployed the infrastructure, you can check the resources on azure portal or on cli/cloud shell with the following command:
 
+    ```
+    terraform show
+    ```
+
+h. Finally, you can destroy the created resources with the following command:
+    
+    ```
+    terraform destroy
+    ```
+    
 ### Output
 
 1. Tag-policy creation and assignment:
