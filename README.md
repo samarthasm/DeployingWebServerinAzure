@@ -32,9 +32,9 @@ b. Ensure to export the environment variables by inputting the above details:
     export ARM_SUBSCRIPTION_ID=<your subscription id>
     export ARM_TENANT_ID=<your tenant id>
     
-c. Create a tagging policy and assign it to the <your subscriptions name>/<resource group name>.
+c. Create a tagging policy and assign it to your subscription.
 
-d. Create the packer template and deploy the packer image using the following command:
+d. Create the packer template (JSON file) and deploy the packer image using the following command:
     
     ```
     packer buld <your .json file>
@@ -42,7 +42,7 @@ d. Create the packer template and deploy the packer image using the following co
 
 e. Prepare the terraform templates by creating main.tf file and speacifying the variables in vars.tf file. 
     
-    For example, the location variable with a default value can be speficied in vars.tf file like below:
+    For example, the location variable (with an optional default value) can be speficied in vars.tf file like below:
     
     ```
     variable "location" {
@@ -50,12 +50,12 @@ e. Prepare the terraform templates by creating main.tf file and speacifying the 
       default = "East US" 
     }
     ```
-    The same variable can be called in main.tf file lile below:
+    The same variable can be called in main.tf file like below:
     
     ```
     var.location
     ```
-    > Note that the resouce ID link of the packerimage created earlier can be referenced by the main.tf via a variable created for the same in vars.tf
+    > Note that the resouce ID link, of the packerimage created earlier, can be referenced by the main.tf via a variable created for the same in vars.tf file.
     
 f. After this, deploy the infrastucture using the same templates with the help of following commands:
     
@@ -69,7 +69,7 @@ f. After this, deploy the infrastucture using the same templates with the help o
 
    Instead, after "terraform init" command, you need to:
    
-   i. Either import the existing resource group and then it will know which resource group to deploy. The command will be like:
+   i. Either import the existing resource group (as it will know which resource group to deploy) and follow it up with *terraform plan* and *terraform apply* commands. The command for importing will be like below:
     
     ```    
     terraform import azurerm_resource_group.main /subscriptions/{subsriptionId}/resourceGroups/{resourceGroupName}
