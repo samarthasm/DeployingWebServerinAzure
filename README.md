@@ -34,9 +34,30 @@ b. Ensure to export the environment variables by inputting the above details:
     
 c. Create a tagging policy and assign it to the <your subscriptions name>/<resource group name>.
 
-d. Create the packer template and deploy the packer image.
+d. Create the packer template and deploy the packer image using the following command:
+    
+    ```
+    packer buld <your .json file>
+    ```
 
-e. Create the terraform template and deploy the infrastucture using the packer image. If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. 
+e. Prepare the terraform templates by creating main.tf file and speacifying the variables in vars.tf file. 
+    
+    For example, the location variable with a default value can be speficied in vars.tf file like below:
+    
+    ```
+    variable "location" {
+      description = "The Azure Region in which all resources in this example should be created."
+      default = "East US" 
+    }
+    ```
+    The same variable can be called in main.tf file lile below:
+    
+    ```
+    var.location
+    ```
+    
+f. Create the terraform template and deploy the infrastucture using the packer image. 
+   If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. 
 
    Instead, after "terraform init" command, you need to:
    
