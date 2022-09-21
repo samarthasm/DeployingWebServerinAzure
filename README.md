@@ -67,7 +67,7 @@ f. After this, deploy the infrastucture using the same templates with the help o
     
    If you are looking to use an existing reource group (already created for our PackerImage), so we can't deploy the resource group with the same name. 
 
-   Instead, after "terraform init" command, you need to:
+   Instead, after *terraform init* command, you need to:
    
    i. Either import the existing resource group (as it will know which resource group to deploy) and follow it up with *terraform plan* and *terraform apply* commands. The command for importing will be like below:
     
