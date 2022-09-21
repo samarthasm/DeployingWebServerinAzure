@@ -56,7 +56,7 @@ e. Prepare the terraform templates by creating main.tf file and speacifying the 
     var.location
     ```
     
-    > Note that the resouce ID link, of the packerimage created earlier, can be referenced by the main.tf via a variable created for the same in vars.tf file.
+    >> Note that the resouce ID link, of the packerimage created earlier, can be referenced by the main.tf via a variable created for the same in vars.tf file.
     
 f. After this, deploy the infrastucture using the same templates with the help of following commands:
     
